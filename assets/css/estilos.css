@@ -26,11 +26,17 @@ input[type="search"] {
   height: 55px;
   font-size: 1.2rem;
   border-radius: 20px;
-  padding: 10px;
   box-shadow: none;
+  padding-bottom: 11px;
   border: 1px solid #d3d3d3;
   transition: box-shadow 0.5s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.input::placeholder {
+  font-size: 14px;
+  text-indent: 13px;
+  opacity: 0.5;
 }
 
 input[type="search"]:focus {

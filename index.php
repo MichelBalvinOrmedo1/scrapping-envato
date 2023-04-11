@@ -2,7 +2,7 @@
 
 <main class="container mx-auto">
     <div class="d-flex flex-column align-items-center subirlo">
-      <img class ="img" src="/img/captura.png" alt="Descripción de la imagen" />
+      <img class="img" src="/img/logo.PNG" alt="Descripción de la imagen" />
       
       <form class="d-flex col-12">
         <input class="form-control me-2 input" type="search" placeholder="Plantillas o Recursos..." aria-label="Buscar">

@@ -30,6 +30,7 @@ input[type="search"] {
   box-shadow: none;
   border: 1px solid #d3d3d3;
   transition: box-shadow 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 input[type="search"]:focus {
@@ -46,6 +47,7 @@ button[type="submit"] {
   background-color: #f5f5f5;
   color: #000000;
   transition: background-color 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 button[type="submit"]:hover {
@@ -73,31 +75,19 @@ button[type="submit"]:active {
 }
 
 
-img{
-  border-radius: 10px;
-  padding: 50px;
-  
 
+
+
+/* ESTILOS DE IMAGEN  */
+.img{
+   border-radius: 20px;
+   margin-bottom: 14%;
+   margin-right: 11%;
+   height: 210px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-
-.buscar {
-  background-color: #007bff; /* Cambia el color de fondo según tus necesidades */
-  color: #fff; /* Cambia el color del texto según tus necesidades */
-  border: none; /* Elimina el borde del botón */
-  padding: 10px 20px; /* Agrega un relleno al botón */
-  border-radius: 5px; /* Agrega esquinas redondeadas al botón */
-}
-
-.buscar img {
-  width: 20px; /* Cambia el ancho de la imagen según tus necesidades */
-  margin-right: 10px; /* Agrega un margen a la derecha de la imagen */
-}
-
-
-
-
-/* Subir el busqueda y imagen */
+/* Subir el DIV busqueda y imagen */
 .subirlo{
   margin-bottom: 30%;
 }
@@ -114,7 +104,3 @@ img{
   .color{
     background-color: #547C64;
   }
-
-.tamaño{
-height: 40px;
-}

@@ -17,30 +17,54 @@
   text-align: center;
 }
 
+.tituloprimero{
+  text-align: center;
+  margin: 4%;
+}
+
+
+/* ESTILOS DE LOS TITLOS DE CADA CATEGORIA */
+.contenidotitulo{
+padding: 5%;
+}
+
+.contenidotitulo a{
+  text-decoration: none;
+}
+
+.mejoradocajas{
+  margin: 5%;
+}
+
+
+
 
 </style>
 <main >
-  <h1>Resultados</h1>
+  <h1 class="tituloprimero">Resultados</h1>
 
   <% products.forEach(function(item) { %>
     <div class="contenedorProdu">
-      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a> <br>
+      <div class="contenidotitulo">
+      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a>
+      </div>
+      <div class="mejoradocajas">
         <div class="conteiResultado">
           <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
+
             <div class="hijosResult">
-              
               <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
               <div>
                 <a class="autores" href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a>
                 <span class="descripcion"><%= item.containerData.descriptions[index][0] %></span>
-
-                
+                <!-- Icono de descarga -->
               </div>
   
             </div>
             
           <% } %>
         </div>
+      </div>
        
      
     </div>

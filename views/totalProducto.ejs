@@ -1,5 +1,10 @@
 <%- include('head.ejs') %> 
 <body>
+<style>
+  .img1{
+    width: 300px;
+  }
+</style>
 <main >
   <h1>Resultados</h1>
 
@@ -9,8 +14,8 @@
      
         <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
           <div>
-            <a href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a><br>
             
+            <img class="img1" src="<%= item.containerData.imagen[index][0] %>" alt="pera"><br>
           </div>
           
         <% } %>

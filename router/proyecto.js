@@ -57,7 +57,7 @@ async function scrapeEnvato(keyword) {
         }else{
           const autor = item.innerHTML;
           const autorurl = item.getAttribute("href");
-          return [autor, url + autorurl];
+          return [autor,autorurl];
         }
       });
 

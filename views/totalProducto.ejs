@@ -1,24 +1,47 @@
 <%- include('head.ejs') %> 
 <body>
 <style>
-  .img1{
-    width: 300px;
+  .imgRes{
+    width: 400px;
   }
+  
+  .conteiResultado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.conteiResultado > div {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+
 </style>
 <main >
   <h1>Resultados</h1>
 
   <% products.forEach(function(item) { %>
-    <div>
-      <a href="<%= item.title[1] %>"><%= item.title[0] %></a> <br>
-     
-        <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
-          <div>
+    <div class="contenedorProdu">
+      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a> <br>
+        <div class="conteiResultado">
+          <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
+            <div class="hijosResult">
+              
+              <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
+              <div>
+                <a class="autores" href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a>
+                <span class="descripcion"><%= item.containerData.descriptions[index][0] %></span>
+
+                
+              </div>
+  
+            </div>
             
-            <img class="img1" src="<%= item.containerData.imagen[index][0] %>" alt="pera"><br>
-          </div>
-          
-        <% } %>
+          <% } %>
+        </div>
+       
      
     </div>
   <% }); %>

@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 // GUARDA LOS ELEMENTOS DEL HTML
 const main_img = document.querySelector('.main_img')
 const thumbnails = document.querySelectorAll('.thumbnails')
@@ -16,3 +17,5 @@ thumbnails.forEach(thumb =>{
 })
 
 
+=======
+>>>>>>> 9a8dd293a88683f7826f26491b755f8a2b3cc10b

@@ -1,94 +1,150 @@
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  
-}
-
-.fondo{
-  background-image: url('/img/fondo.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-main {
-  flex: 1;
-  overflow-y: auto;
-}
-.container {
-  max-width: 100%; /* Ancho máximo del contenedor */
-  margin: auto; /* Centrar el contenedor horizontalmente */
-}
-.contenedor {
-  margin: 0 auto;
-  max-width: 960px;
-  width: 100%;
-  padding: 20px;
-}
-
-.subirlo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 86vh;
-}
-
-.img-logo {
-  width: 500px; /* Ancho de la imagen del logo */
-  height: auto; /* Altura de la imagen ajustada automáticamente */
-  margin-top: 20px; /* Margen superior */
-}
-
-
-
-
-.footer {
   background-color: #547C64;
-  color: #FFFFFF;
-   /* Posición absoluta para que el footer esté siempre en la parte inferior */
-  bottom: 0; /* Alinear el footer en la parte inferior de la ventana del navegador */
-  left: 0; /* Alinear el footer a la izquierda */
-  right: 0; /* Alinear el footer a la derecha */
 }
 
-.isotipo{
-  height: 50px;
-
-}
-
-.texto {
-  color: #FFFFFF;
-}
-
-.img-fb,
-.img-twiter,
-.img-instagram {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.tamaño {
-  font-size: 12px;
-  background-color: #FFFFFF;
-  color: #000000;
-}
-
-/*js deslizable texto en buscador*/
-#texto {
+main {
   display: flex;
-  position: absolute;
-  left: 0;
-  color: white;
-  transform: translateX(0%);
-  font-size: 24px; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h2 {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="search"] {
+  width: 600px;
+  height: 55px;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  box-shadow: none;
+  padding-bottom: 11px;
+  border: 1px solid #d3d3d3;
+  transition: box-shadow 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.input::placeholder {
+  font-size: 14px;
+  text-indent: 13px;
+  opacity: 0.5;
+}
+
+input[type="search"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #080808;
+}
+
+button[type="submit"] {
+  border-radius: 20px;
+  height: 55px;
+  padding: 10px 20px;
+  margin-left: -1px;
+  border: none;
+  background-color: #f5f5f5;
+  color: #000000;
+  transition: background-color 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+button[type="submit"]:hover {
+  background-color: #75656567;
+}
+
+button[type="submit"]:active {
+  background-color: #1e7e34;
+}
+
+
+@media screen and (max-width: 768px) {
+  input[type="search"] {
+    width: 100%;
+    margin-right: 5px;
+  }
+  
+  button[type="submit"] {
+    margin-left: 5px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+/* ESTILOS DE IMAGEN  */
+.img{
+   border-radius: 20px;
+   margin-bottom: 14%;
+   margin-right: 11%;
+   height: 210px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* Subir el DIV busqueda y imagen */
+.subirlo{
+  margin-bottom: 30%;
+}
+
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
   }
 
-  #texto-container{
-    display: flex;
-    background-color:#547C64;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-    
+  .color{
+    background-color: #547C64;
   }
+
+/* LOGOS REDES SOCIALES */
+
+.img-fb{
+  width: 5%;
+  height: auto;
+  padding-right: 10px;
+  margin-top: 50px;
+  margin-left: 13%;
+  opacity: 0.5;
+}
+
+.img-twiter{
+  width: 5%;
+  height: auto;
+  padding-right: 10px;
+  margin-top: 50px;
+  opacity: 0.5;
+  /* margin-left: 1%; */
+}
+
+.img-instagram{
+  width: 34px;
+  height: auto;
+  padding-right: 8px;
+  margin-top: 50px;
+  opacity: 0.5;
+  
+  /* margin-right: 2px; */
+}
+
+/* TEXTO DEL FOOTER  */
+.texto{
+  opacity: 0.5;
+  /* padding-right: 20%; */
+  padding-left: 20%; 
+}
 

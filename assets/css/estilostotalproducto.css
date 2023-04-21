@@ -131,14 +131,14 @@ padding: 2%;
 /* icono */
 
 .contenedorboton {
-    display: flex; /* Para que el div ocupe solo el ancho necesario */
+    /* display: flex;  que el div ocupe solo elPara ancho necesario */
   }
   
   .botonicono {
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
-    float: right; /* Para alinear el botón a la izquierda */
-    margin-left: 50px; /* Opcional: para agregar un margen derecho */
+    float: left; /* Para alinear el botón a la izquierda */
+    /* margin-left: 50px; Opcional: para agregar un margen derecho */
   }
 
 

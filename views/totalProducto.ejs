@@ -1,66 +1,38 @@
 <%- include('head.ejs') %> 
 <body>
-<style>
-  .imgRes{
-    width: 400px;
-  }
-  
-  .conteiResultado {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-}
-
-.conteiResultado > div {
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
-}
-
-.tituloprimero{
-  text-align: center;
-  margin: 4%;
-}
-
-
-/* ESTILOS DE LOS TITLOS DE CADA CATEGORIA */
-.contenidotitulo{
-padding: 5%;
-}
-
-.contenidotitulo a{
-  text-decoration: none;
-}
-
-.mejoradocajas{
-  margin: 5%;
-}
-
-
-
-
-</style>
-<main >
-  <h1 class="tituloprimero">Resultados</h1>
-
+<main > 
+  <h1 class="display-1 tituloprimero">Resultados</h1>
   <% products.forEach(function(item) { %>
     <div class="contenedorProdu">
+      <!-- selector de categorias (FOTOS, PLANTILLAS DE VIDEO ETC) -->
       <div class="contenidotitulo">
-      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a>
+      <button class="cta"><span><a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a></span><svg viewBox="0 0 13 10" height="10px" width="15px">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg></button>
       </div>
+      <!-- --------------------- -->
       <div class="mejoradocajas">
         <div class="conteiResultado">
           <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
-
             <div class="hijosResult">
               <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
-              <div>
+              <div class="contenedordescripcion">
                 <a class="autores" href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a>
                 <span class="descripcion"><%= item.containerData.descriptions[index][0] %></span>
-                <!-- Icono de descarga -->
+                
               </div>
-  
+              <!-- Icono de descarga -->
+              <div class="contenedorboton">
+                <button class="botonicono">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                  </svg>
+                </button>
+              </div>
             </div>
+            
             
           <% } %>
         </div>
@@ -70,6 +42,5 @@ padding: 5%;
     </div>
   <% }); %>
     
-  
+  <%- include('footer.ejs') %>   
 </main>
-<%- include('footer.ejs') %> 

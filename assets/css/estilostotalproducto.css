@@ -1,0 +1,146 @@
+  .imgRes{
+    max-width: 90%;  
+    height: 80%;
+    /* padding-bottom: 10px; */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  }
+  
+  .conteiResultado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  
+}
+
+.conteiResultado > div {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20%;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
+
+/* EL PRIMER H1 */
+.tituloprimero{
+  text-align: center;
+  margin: 30px;
+}
+
+
+/* ESTILOS DE LOS TITLOS DE CADA CATEGORIA */
+.contenidotitulo{
+padding: 2%;
+}
+
+.contenidotitulo a{
+  text-decoration: none;
+  text-align: justify;
+}
+
+/* BOTON DEL a */
+.titulo{
+ color: black;
+}
+.cta {
+ position: relative;
+ margin: auto;
+ padding: 12px 18px;
+ transition: all 0.2s ease;
+ border: none;
+ background: none;
+}
+
+.cta:before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ display: block;
+ border-radius: 50px;
+ background: #b1dae7;
+ width: 45px;
+ height: 45px;
+ transition: all 0.3s ease;
+}
+
+.cta span {
+ position: relative;
+ font-family: "Ubuntu", sans-serif;
+ font-size: 18px;
+ font-weight: 700;
+ letter-spacing: 0.05em;
+ color: #234567;
+}
+
+.cta svg {
+ position: relative;
+ top: 0;
+ margin-left: 10px;
+ fill: none;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+ stroke: #234567;
+ stroke-width: 2;
+ transform: translateX(-5px);
+ transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+ width: 100%;
+ background: #b1dae7;
+}
+
+.cta:hover svg {
+ transform: translateX(0);
+}
+
+.cta:active {
+ transform: scale(0.95);
+}
+
+
+/* ------- */
+
+
+
+
+.mejoradocajas{
+  margin: 5%;
+}
+
+/* AUTORES Y DESCRIPCION */
+
+.contenedordescripcion{
+  display: flex;
+  flex-direction: column;
+}
+
+.autores{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.descripcion{
+  font-size: 16px;
+  margin-top: 0;
+}
+
+/* icono */
+
+.contenedorboton {
+    display: flex; /* Para que el div ocupe solo el ancho necesario */
+  }
+  
+  .botonicono {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    float: right; /* Para alinear el botón a la izquierda */
+    margin-left: 50px; /* Opcional: para agregar un margen derecho */
+  }
+
+
+
+

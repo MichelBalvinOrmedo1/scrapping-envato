@@ -10,10 +10,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-main {
-  flex: 1;
-  overflow-y: auto;
-}
+
 .container {
   max-width: 100%; /* Ancho máximo del contenedor */
   margin: auto; /* Centrar el contenedor horizontalmente */

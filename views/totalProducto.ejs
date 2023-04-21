@@ -1,63 +1,133 @@
-<%- include('head.ejs') %> 
+<%- include('head.ejs') %>
 <body>
-<style>
-  .imgRes{
-    width: 400px;
-  }
-  
-  .conteiResultado {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-}
+  <style>
+    .imgRes {
+      width: 100px;
+    }
 
-.conteiResultado > div {
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
-}
+    .conteiResultado {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
 
+    .conteiResultado > div {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    .filtro-container {
+      width: 100%;
 
-</style>
-<link rel="stylesheet" type="text/css" href="/css/estilospagina2.css">
-<div class="contenedorr">
-  <img class="logo" src="/img/logo.PNG">
-  <div class="search-contenedorr">
-    <form>
-      <div class="search">
-        <input type="text" placeholder="Buscar...">
-        <button type="submit">Buscar</button>
-      </div>
-    </form>
-  </div>
-</div>
-<main >
-  <h1>Resultados</h1>
+      display: inline-block;
+    }
 
-  <% products.forEach(function(item) { %>
-    <div class="contenedorProdu">
-      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a> <br>
-        <div class="conteiResultado">
-          <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
-            <div class="hijosResult">
-              
-              <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
-              <div>
-                <a class="autores" href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a>
-                <span class="descripcion"><%= item.containerData.descriptions[index][0] %></span>
+    #opciones-filtro {
+      position: relative;
+      top: 100%;
+      left: 0;
+      padding: 5px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-wrap: wrap;
+      background-color: white;
+    }
+  </style>
 
-                
-              </div>
-  
-            </div>
-            
-          <% } %>
+  <link rel="stylesheet" type="text/css" href="/css/estilospagina2.css" />
+  <div class="contenedorr">
+    <img class="logo" src="/img/logo.PNG" />
+    <div class="search-contenedorr">
+      <form action="/totalProducto" method="post">
+        <div class="search">
+          <input
+            type="search"
+            placeholder="Busca tu recurso ..."
+            aria-label="Buscar"
+            id="keyword"
+            name="keyword"
+          />
+          <button type="submit"><i class="bi bi-search"></i> Buscar</button>
         </div>
-       
-     
+      </form>
     </div>
-  <% }); %>
-    
-  
-</main>
-<%- include('footer.ejs') %> 
+  </div>
+  <main>
+    <h1>Resultados</h1>
+    <button id="filtro-btn">Filtrar</button>
+    <div class="filtro-container" id="filtroContainer">
+      <div id="opciones-filtro">
+        <% let opciones = 0; %> <%products.forEach(function(item) { %>
+
+        <label for="opcion<%=opciones%>"
+          ><input
+            checked
+            type="checkbox"
+            name="opcion<%=opciones%>"
+            id="opcion<%=opciones%>"
+            value=" <%= item.title[0] %>"
+          />
+          <%= item.title[0] %></label
+        >
+        <%opciones++;%> <%})%>
+      </div>
+    </div>
+
+    <% products.forEach(function(item) { %>
+    <div class="contenedorProdu">
+      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a>
+      <br />
+      <div class="conteiResultado">
+        <% for(let index = 0; index < item.containerData.authors.length;
+        index++){ %>
+        <div class="hijosResult">
+          <img
+            class="imgRes"
+            src="<%= item.containerData.imagen[index][0] %>"
+            alt="pera"
+          />
+          <div>
+            <a
+              class="autores"
+              href="<%= item.containerData.authors[index][1] %>"
+              ><%= item.containerData.authors[index][0] %></a
+            >
+            <span class="descripcion"
+              ><%= item.containerData.descriptions[index][0] %></span
+            >
+          </div>
+        </div>
+
+        <% } %>
+      </div>
+    </div>
+    <% }); %>
+  </main>
+  <script>
+    const btnFriltro = document.getElementById("filtro-btn");
+    const opcionesFiltro = document.getElementById("opciones-filtro");
+
+    btnFriltro.addEventListener("click", (e) => {
+      e.preventDefault();
+      opcionesFiltro.style.display =
+        opcionesFiltro.style.display === "flex" ? "none" : "flex";
+    });
+
+    const filtroSeleccionar = document.querySelectorAll(".contenedorProdu");
+
+    let miCheckbox = document.querySelectorAll("input[type='checkbox']");
+    for (let i = 0; i < filtroSeleccionar.length; i++) {
+      miCheckbox[i].addEventListener("change", function () {
+        if (this.checked) {
+          filtroSeleccionar[i].style.display = "block";
+        } else {
+          filtroSeleccionar[i].style.display = "none";
+        }
+      });
+    }
+  </script>
+
+  <%- include('footer.ejs') %>
+</body>

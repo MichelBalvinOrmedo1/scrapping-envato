@@ -3,63 +3,66 @@
   <style>
     .filtro-container {
       width: 100%;
-
-      display: inline-block;
     }
-
-    #opciones-filtro {
-      position: relative;
-      top: 100%;
-      left: 0;
-      padding: 5px;
+    #filtro-btn {
+      background-color: #7CB342;
+      color: white;
       border: none;
       border-radius: 3px;
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      display: none;
-      flex-wrap: wrap;
-      background-color: white;
+      padding: 10px 15px;
+      cursor: pointer;
     }
- 
-    .modal-contenido{
-  background-color: green;
-  width:300px;
-  padding: 10px 20px;
-  margin: 20% auto;
+    #filtro-btn:hover {
+      background-color: #689F38;
+    }
+    #opciones-filtro {
+  width: 100%;
   position: relative;
+  top: 100%;
+  left: 0;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  display: none;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: white;
+  gap: 10px; /* añade espacio entre los elementos */
 }
 
-.modal p {
-  opacity: 0.7;
-  font-size: 14px;
-  color: aliceblue;
-  
-}
-.modal h1 {
-  margin: 0;
-}
+    .open{
+      box-shadow: 1px 1px 3px black;
+    }
 
-    
-    
+
+    .open label {
+      font-size: 19px;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      font-family: 'Manga Temple', cursive;
+    }
+    .open input[type="checkbox"]:checked + label {
+      font-weight: bold;
+      color: #7CB342;
+    }
   </style>
 
   <link rel="stylesheet" type="text/css" href="/css/estilospagina2.css" />
-  <div class="contenedorr">
-    <img class="logo" src="/img/logo.PNG" />
-    <div class="search-contenedorr">
-      <form action="/totalProducto" method="post">
-        <div class="search">
-          <input
-            type="search"
-            placeholder="Busca tu recurso ..."
-            aria-label="Buscar"
-            id="keyword"
-            name="keyword"
-          />
-          <button type="submit"><i class="bi bi-search"></i> Buscar</button>
-        </div>
-      </form>
+  <header>
+    
+    <div class="container">
+      <div class="logo">
+        <img src="/img/logo.PNG" alt="Logo">
+      </div>
+      <div class="search">
+        <form action="/totalProducto" method="post">
+          <input type="search" placeholder="Busca tu recurso ..." aria-label="Buscar" id="keyword" name="keyword">
+          <button type="submit"><i class="bi bi-search">Buscar</i></button>
+        </form>
+      </div>
     </div>
-  </div>
+  </header>
   <main>
     <h1>Resultados</h1>
     <button id="filtro-btn">Filtrar</button>
@@ -153,6 +156,13 @@
       e.preventDefault();
       opcionesFiltro.style.display =
         opcionesFiltro.style.display === "flex" ? "none" : "flex";
+
+      if(opcionesFiltro.classList.toString() == "open"){
+        opcionesFiltro.classList.remove("open");
+      }else{
+        opcionesFiltro.classList.add("open");
+      }
+
     });
 
     const filtroSeleccionar = document.querySelectorAll(".contenedorProdu");

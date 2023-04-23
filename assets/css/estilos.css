@@ -31,12 +31,10 @@ body {
 }
 
 .img-logo {
-  width: 500px; /* Ancho de la imagen del logo */
-  height: auto; /* Altura de la imagen ajustada automáticamente */
-  margin-top: 20px; /* Margen superior */
+  max-width: 40%;
+  height: auto;
+  margin-bottom: 2vh;
 }
-
-
 
 
 .footer {
@@ -73,19 +71,21 @@ body {
 /*js deslizable texto en buscador*/
 #texto {
   display: flex;
-  position: absolute;
+ 
   left: 0;
   color: white;
   transform: translateX(0%);
-  font-size: 24px; 
-  }
+  font-size: 24px;
+  white-space: nowrap; /* evita que el texto se envuelva */
+}
 
-  #texto-container{
-    display: flex;
-    background-color:#547C64;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-    
-  }
+#texto-container{
+  width: auto;
+  display: flex;
+  background-color:#547C64;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  overflow: hidden; /* Agregar overflow hidden para ocultar lo que sobresale del contenedor */
+}
 

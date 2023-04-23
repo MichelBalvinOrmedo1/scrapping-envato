@@ -1,62 +1,123 @@
-<%- include('head.ejs') %> 
+<%- include('head.ejs') %>
 <body>
-<style>
-  .imgRes{
-    width: 400px;
-  }
-  
-  .conteiResultado {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-}
+  <style>
+    .filtro-container {
+      width: 100%;
 
-.conteiResultado > div {
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
-}
+      display: inline-block;
+    }
 
+    #opciones-filtro {
+      position: relative;
+      top: 100%;
+      left: 0;
+      padding: 5px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-wrap: wrap;
+      background-color: white;
+    }
+  </style>
 
-</style>
-<link rel="stylesheet" type="text/css" href="/css/estilospagina2.css">
-<div class="contenedorr">
-  <img class="logo" src="/img/logo.PNG">
-  <div class="search-contenedorr">
-    <form>
-      <div class="search">
-        <input type="text" placeholder="Buscar...">
-        <button type="submit">Buscar</button>
-      </div>
-    </form>
-  </div>
-</div>
-<main >
-  <h1>Resultados</h1>
-
-  <% products.forEach(function(item) { %>
-    <div class="contenedorProdu">
-      <a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a> <br>
-        <div class="conteiResultado">
-          <% for(let index = 0; index < item.containerData.authors.length; index++){ %>
-            <div class="hijosResult">
-              
-              <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
-              <div>
-                <a class="autores" href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a>
-                <span class="descripcion"><%= item.containerData.descriptions[index][0] %></span>
-
-                
-              </div>
-  
-            </div>
-            
-          <% } %>
+  <link rel="stylesheet" type="text/css" href="/css/estilospagina2.css" />
+  <div class="contenedorr">
+    <img class="logo" src="/img/logo.PNG" />
+    <div class="search-contenedorr">
+      <form action="/totalProducto" method="post">
+        <div class="search">
+          <input
+            type="search"
+            placeholder="Busca tu recurso ..."
+            aria-label="Buscar"
+            id="keyword"
+            name="keyword"
+          />
+          <button type="submit"><i class="bi bi-search"></i> Buscar</button>
         </div>
-     
+      </form>
     </div>
-  <% }); %>
-    
-  
-</main>
-<%- include('footer.ejs') %> 
+  </div>
+  <main>
+    <h1>Resultados</h1>
+    <button id="filtro-btn">Filtrar</button>
+    <div class="filtro-container" id="filtroContainer">
+      <div id="opciones-filtro">
+        <% let opciones = 0; %> <%products.forEach(function(item) { %>
+
+        <label for="opcion<%=opciones%>"
+          ><input
+            checked
+            type="checkbox"
+            name="opcion<%=opciones%>"
+            id="opcion<%=opciones%>"
+            value=" <%= item.title[0] %>"
+          />
+          <%= item.title[0] %></label
+        >
+        <%opciones++;%> <%})%>
+      </div>
+    </div>
+
+    <% products.forEach(function(item) { %>
+      <div class="contenedorProdu">
+        <!-- selector de categorias (FOTOS, PLANTILLAS DE VIDEO ETC) -->
+        <div class="contenidotitulo">
+          <button class="cta"><span><a class="titulo" href="<%= item.title[1] %>"><%= item.title[0] %></a></span><svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg></button>
+        </div>
+        <!-- --------------------- -->
+        <div class="mejoradocajas">
+          <div class="conteiResultado">
+            <% for(let index = 0; index < item.containerData.authors.length; index++) { %>
+              <div class="hijosResult">
+                <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
+                <div class="contenedordescripcion">
+                  <span class="descripcion"><%= item.containerData.descriptions[index][0] %></span>
+                  <a class="autores" href="<%= item.containerData.authors[index][1] %>"><%= item.containerData.authors[index][0] %></a>
+                </div>
+                <!-- Icono de descarga -->
+                <div class="contenedorboton">
+                  <button class="botonicono">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="" viewBox="0 0 16 16">
+                      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <% }) %>   
+  </main>
+  <script>
+    const btnFriltro = document.getElementById("filtro-btn");
+    const opcionesFiltro = document.getElementById("opciones-filtro");
+
+    btnFriltro.addEventListener("click", (e) => {
+      e.preventDefault();
+      opcionesFiltro.style.display =
+        opcionesFiltro.style.display === "flex" ? "none" : "flex";
+    });
+
+    const filtroSeleccionar = document.querySelectorAll(".contenedorProdu");
+
+    let miCheckbox = document.querySelectorAll("input[type='checkbox']");
+    for (let i = 0; i < filtroSeleccionar.length; i++) {
+      miCheckbox[i].addEventListener("change", function () {
+        if (this.checked) {
+          filtroSeleccionar[i].style.display = "block";
+        } else {
+          filtroSeleccionar[i].style.display = "none";
+        }
+      });
+    }
+  </script>
+
+  <%- include('footer.ejs') %>
+</body>

@@ -1,64 +1,69 @@
+/* Estilos generales */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
 
-.contenedorr {
+/* Estilos para el encabezado */
+header {
   background-color: #547C64;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  color: white;
   padding: 10px;
 }
 
-.logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 5px;
-
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.search-contenedorr {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
+.logo {
+  flex-basis: 15%;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .search {
+  flex-basis: 70%;
+  margin-top: 10px;
+}
+
+.search form {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
-input[type="search"] {
+.search input[type="search"] {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 16px;
   margin-right: 10px;
-  border: 2px solid #095c1e67;
 }
 
-button[type="submit"] {  
+.search button[type="submit"] {  
   background-color: white;
- 
   border: none;
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px;
-  position:relative;
-  border: 2px solid #095c1e67;
-  
-}
-button[type="submit"]:hover {
-  background-color: #095c1e67;
 }
 
-button[type="submit"]:active {
-  background-color: #1e7e34;
+@media (max-width: 768px) {
+  /* Estilos para dispositivos móviles */
+  .container {
+    flex-direction: column;
+  }
+
+  .search {
+    margin-top: 20px;
+    flex-basis: 100%;
+  }
 }

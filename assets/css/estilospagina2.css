@@ -1,9 +1,15 @@
 /* Estilos generales */
-body {
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
 }
+
+
 
 /* Estilos para el encabezado */
 header {
@@ -20,7 +26,7 @@ header {
 }
 
 .logo {
-  flex-basis: 15%;
+  flex-basis: 20%;
 }
 
 .logo img {
@@ -66,4 +72,68 @@ header {
     margin-top: 20px;
     flex-basis: 100%;
   }
+}
+/*estilos de filtro*/
+.filtro-container {
+  width: 100%;
+}
+#filtro-btn {
+  background-color: #a8a8a8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+#filtro-btn:hover {
+  background-color: #c0c0c0;
+}
+#opciones-filtro {
+width: 100%;
+position: relative;
+top: 100%;
+left: 0;
+padding: 5px;
+border: none;
+border-radius: 3px;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+display: none;
+justify-content: space-evenly;
+flex-wrap: wrap;
+background-color: white;
+gap: 10px; /* añade espacio entre los elementos */
+}
+
+.open{
+  box-shadow: 1px 1px 3px black;
+}
+
+
+.open label {
+  font-size: 19px;
+  color: #000000;
+  font-family: 'Rubik', sans-serif;
+}
+.open input[type="checkbox"]:checked + label {
+  font-weight: bold;
+  color: #7CB342;
+}
+
+@media (max-width: 768px) {
+/* Estilos para pantallas de 768px o menos */
+.filtro-container {
+flex-direction: column;
+align-items: center;
+  }
+}
+
+.resultados{
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+  
+  
+}
+.texto-resultados{
+color: #acabab;
+margin-bottom: 0.8rem;
 }

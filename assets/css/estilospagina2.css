@@ -124,5 +124,15 @@ gap: 10px; /* añade espacio entre los elementos */
 .filtro-container {
 flex-direction: column;
 align-items: center;
+  }
 }
+
+.resultados{
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+  
+}
+.texto-resultados{
+color: #547C64;
+
 }

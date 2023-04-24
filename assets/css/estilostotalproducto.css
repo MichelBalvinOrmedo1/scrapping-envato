@@ -16,42 +16,44 @@
 }
 
 .contenidotitulo a {
-  text-decoration: none;
-  color: #333;
+  text-decoration:none;
+  color: #ffffff;
   font-size: 1.5rem;
-  font-weight: bold;
+  
 }
 
 .cta {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1rem;
   text-transform: uppercase;
-  border: 2px solid #b1dae7;
+  border: 2px solid #547C64;;
   padding: 0.5em 1.5em;
-  background-color: #b1dae7;
-  color: #234567;
+  background-color: #547C64;;
+  color: #ffffff;
   transition: all 0.2s ease;
   cursor: pointer;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .cta:hover {
-  background-color: #234567;
-  color: #b1dae7;
+  background-color: #547C64;
+  text-decoration: none;
+  
 }
 
 .cta svg {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke: #234567;
+  stroke: #7CB342;
   stroke-width: 2;
   margin-left: 1em;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cta:hover svg {
@@ -142,7 +144,6 @@
   }
   
   .busqueda button {
-  background-color: #234567;
   color: white;
   font-size: 1.2rem;
   padding: 10px 20px;
@@ -152,7 +153,7 @@
   
   .busqueda button:hover {
   background-color: #b1dae7;
-  color: #234567;
+  text-decoration: none;
   }
   
   /* Estilos de la sección de información */
@@ -165,7 +166,7 @@
   
   .info {
   font-size: 1.2rem;
-  color: #666;
+  color: #000000;
   max-width: 600px;
   margin-right: 30px;
   }
@@ -207,3 +208,6 @@
   border-radius: 10px;
 }
  
+a.titulo{
+  text-decoration: none;
+}

@@ -78,15 +78,15 @@ header {
   width: 100%;
 }
 #filtro-btn {
-  background-color: #7CB342;
+  background-color: #a8a8a8;
   color: white;
   border: none;
-  border-radius: 3px;
-  padding: 10px 15px;
+  border-radius: 5px;
+  padding: 10px 10px;
   cursor: pointer;
 }
 #filtro-btn:hover {
-  background-color: #689F38;
+  background-color: #c0c0c0;
 }
 #opciones-filtro {
 width: 100%;
@@ -131,8 +131,9 @@ align-items: center;
   margin-left: 1.5rem;
   margin-top: 1.5rem;
   
+  
 }
 .texto-resultados{
-color: #547C64;
-
+color: #acabab;
+margin-bottom: 0.8rem;
 }

@@ -27,18 +27,18 @@
   align-items: center;
   font-size: 1rem;
   text-transform: uppercase;
-  border: 2px solid #547C64;;
+  border: 2px solid #547C64;
   padding: 0.5em 1.5em;
-  background-color: #547C64;;
+  background-color: #547C64;
   color: #ffffff;
   transition: all 0.2s ease;
   cursor: pointer;
   border-radius: 10px;
-  text-decoration: none;
+  
 }
 
 .cta:hover {
-  background-color: #547C64;
+  background-color:  #5e806c;
   text-decoration: none;
   
 }
@@ -173,7 +173,7 @@
   
   .info span {
   font-weight: bold;
-  color: #234567;
+  
   
   }
   
@@ -190,7 +190,6 @@
   
   .btnInfo:hover {
   background-color: #b1dae7;
-  color: #234567;
   }
   
   
@@ -208,6 +207,6 @@
   border-radius: 10px;
 }
  
-a.titulo{
+a.href{
   text-decoration: none;
 }

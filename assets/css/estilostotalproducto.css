@@ -34,6 +34,7 @@
   color: #234567;
   transition: all 0.2s ease;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .cta:hover {
@@ -69,6 +70,7 @@
 .contenedordescripcion{
  
   padding: 1.5vw;
+  border-radius: 10px;
 }
 /* Estilos de la sección de resultados */
 .conteiResultado {
@@ -76,6 +78,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   margin-top: 30px;
+  
 }
 
 .conteiResultado > div {
@@ -117,6 +120,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  border-radius: 10px;
   }
   
   .busqueda {
@@ -197,5 +201,9 @@
   
   .info {
   margin-bottom: 20px;
+    }
   }
-  }
+.hijosResult{
+  border-radius: 10px;
+}
+ 

@@ -13,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  
 }
 
 .contenidotitulo a {
@@ -35,11 +36,11 @@
   cursor: pointer;
   border-radius: 10px;
   
+  
 }
 
 .cta:hover {
   background-color:  #5e806c;
-  text-decoration: none;
   
 }
 
@@ -53,7 +54,6 @@
   stroke-width: 2;
   margin-left: 1em;
   transition: all 0.3s ease;
-  text-decoration: none;
 }
 
 .cta:hover svg {
@@ -63,9 +63,8 @@
 /* Estilos de la imagen */
 .imgRes {
   max-width: 100%;
-
   height: auto;
-  object-fit: contain;
+  object-fit:content;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

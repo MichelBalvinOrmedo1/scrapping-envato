@@ -131,42 +131,29 @@
                     </svg>
                   </button>
                 </div>
-                <div class="modal" id="miModal">
-                  <div class="modal-contenido">
-                    <h1>¿Quieres comprar este producto?</h1>
+                
+              </div>
+              <div class="modal" id="miModal">
+                <div class="modal-contenido">
+                  <h1>¿Quieres comprar este producto?</h1>
+                  <% if (item.containerData.imagen && item.containerData.imagen[index] && item.containerData.imagen[index][0]) { %>
                     <img class="imgRes" src="<%= item.containerData.imagen[index][0] %>" alt="pera">
-                    <p>Descarga este articulo de forma facil y segura</p>
-                    <br>
-                    <p>TODOS NUESTROS PRODUCTOS ESTA LICENCIADOS!</p>
-                    <button id="cerrarModal">Cerrar</button>
-                    <button> descargar por 1$</button>
-                  </div>
+                  <% } else { %>
+                    <p>Error: No se encontró la imagen seleccionada</p>
+                  <% } %>
+                  <p>Descarga este articulo de forma facil y segura</p>
+                  <br>
+                  <p>TODOS NUESTROS PRODUCTOS ESTA LICENCIADOS!</p>
+                  <button id="cerrarModal">Cerrar</button>
+                  <button> descargar por 1$</button>
                 </div>
-                
-                <script>
-                  // Selecciona el botón y la ventana modal
-                  const boton = document.querySelector('#miBoton');
-                  const modal = document.querySelector('#miModal');
-                  const cerrarModal = document.querySelector('#cerrarModal');
-                
-                  // Agrega un event listener al botón para escuchar el evento 'click'
-                  boton.addEventListener('click', function() {
-                    // Muestra la ventana modal
-                    modal.style.display = 'block';
-                  });
-                
-                  // Agrega un event listener al botón de cerrar modal para escuchar el evento 'click'
-                  cerrarModal.addEventListener('click', function() {
-                    // Oculta la ventana modal
-                    modal.style.display = 'none';
-                  });
-                </script>
               </div>
             <% } %>
+            
           </div>
         </div>
       </div>
-      <% }) %>   
+      <% }) %>  
   </main>
   <script>
     const btnFriltro = document.getElementById("filtro-btn");
@@ -197,6 +184,31 @@
         }
       });
     }
+
+
+    const botones = document.querySelectorAll(".botonicono");
+const modal = document.querySelectorAll('#miModal');
+const cerrarModal = document.querySelectorAll('#cerrarModal');
+
+for(let e=0;e<botones.length; e++){
+  botones[e].addEventListener('click', function() {
+    // Obtener el ID del botón que se hizo clic
+    
+    
+    // Muestra la ventana modal
+    modal[e].style.display = 'block';
+    
+  });
+};
+
+// Agrega un event listener al botón de cerrar modal para escuchar el evento 'click'
+    for(let e=0;e< cerrarModal.length;e++){
+      cerrarModal[e].addEventListener('click', function() {
+      // Oculta la ventana modal
+      modal[e].style.display = 'none';
+    });
+    }
+    
   </script>
 
   <%- include('footer.ejs') %>
